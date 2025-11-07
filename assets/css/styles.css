@@ -32,7 +32,7 @@ a{ color:inherit; text-decoration:none; }
   padding: 18px 0;
 }
 .logo{ font-weight:600; letter-spacing:.08em; font-size:22px; color:#f7f5ef; }
-.nav-links{ display:flex; gap:28px; font-weight:600; }
+.nav-links{ display:flex; gap:28px; font-weight:600; color:#f7f5ef}
 .nav-links a{ opacity:.9; }
 .nav-links a:hover{ opacity:1; }
 
