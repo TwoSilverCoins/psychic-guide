@@ -1,0 +1,252 @@
+:root{
+  --bg: #efe3cc;      /* page background */
+  --panel: #f2e7d0;   /* card panels */
+  --ink: #2b2620;     /* main text */
+  --subtle: #574f46;  /* paragraph text */
+  --brand: #3a362b;   /* header bar */
+  --accent: #7a2f2f;  /* button */
+  --accent-2:#632525; /* button hover */
+}
+*{ box-sizing: border-box; }
+html, body{ margin:0; }
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+a{ color:inherit; text-decoration:none; }
+
+/* layout helper */
+.container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+
+/* header */
+.site-header{
+  position: sticky; top:0; z-index:10;
+  background: var(--brand);
+  color: var(--subtle);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 18px 0;
+}
+.logo{ font-weight:600; letter-spacing:.08em; font-size:22px; color:#f7f5ef; }
+.nav-links{ display:flex; gap:28px; font-weight:600; }
+.nav-links a{ opacity:.9; }
+.nav-links a:hover{ opacity:1; }
+
+.hero{
+  padding: 80px 0;
+}
+
+.hero h1{
+  font-family: "Playfair Display", serif;
+  font-weight:700;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height:1.15;
+  margin-bottom:16px;
+}
+
+.hero p{
+  font-size: 20px;
+  color:#574f46;
+  max-width:800px;
+  margin-bottom:28px;
+}
+
+/* the button */
+.cta{
+  display:inline-block;
+  background:#7a2f2f;
+  color:#fff;
+  font-weight:600;
+  padding:14px 24px;
+  border-radius:12px;
+  transition: background .2s ease;
+}
+.cta:hover{
+  background:#632525;
+}
+
+/* features grid */
+.features{ padding: 24px 0 80px; }
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card{
+  background: #f2e7d0;             /* slightly lighter than page */
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+.card h3{
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+
+.card p{
+  margin: 0;
+  color: #574f46;
+}
+
+/* mobile: stack cards */
+@media (max-width: 900px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+/* little finishing touches */
+body {
+  scroll-behavior: smooth;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.cta:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 700px){
+  .nav{
+    padding: 14px 0;
+    gap: 12px;
+  }
+  .logo{ font-size: 20px; }
+
+  .nav-links{
+    gap: 18px;
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero{
+    padding: 56px 0;     /* a bit tighter */
+    text-align: left;    /* or 'center' if you prefer */
+  }
+  .hero p{
+    font-size: 18px;     /* slightly smaller for phones */
+  }
+
+  .features{
+    padding: 16px 0 56px;
+  }
+  .card{
+    padding: 22px;
+    border-radius: 16px;
+  }
+}
+
+/* ---------- CSS-only collapsible menu ---------- */
+.menu{
+  display: none;          /* hidden on desktop (we’ll show on mobile) */
+}
+.menu-button{
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  color: #f7f5ef;
+  list-style: none;
+  user-select: none;
+}
+.menu-button::-webkit-details-marker{ display:none; } /* hide default marker */
+
+@media (max-width: 700px){
+  /* On phones, show menu button and stack */
+  .nav{ align-items: flex-start; }
+  .logo{ order: 0; }
+  .menu{ display: block; order: 1; }
+
+  /* Hide the always-visible desktop links if you kept them elsewhere */
+  /* (You removed the old nav, so no action needed.) */
+
+  .menu[open] .nav-links{ margin-top: 12px; }
+  .nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Skip link: hidden until focused */
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+  background:#000; color:#fff; padding:10px 14px; border-radius:10px;
+}
+.skip-link:focus{
+  left:14px; top:14px; z-index:1000;
+}
+
+/* Keyboard focus rings */
+a:focus-visible, button:focus-visible, .menu-button:focus-visible, .cta:focus-visible{
+  outline: 3px solid #7a2f2f;      /* your accent */
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html:focus-within{ scroll-behavior: auto; }
+  *, *::before, *::after{
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  background: #3a362b;     /* same as header */
+  color: #e8e2d6;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 80px;
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-content p{
+  margin: 0;
+  font-size: 15px;
+}
+
+.footer-nav{
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav a{
+  color: #e8e2d6;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.footer-nav a:hover{
+  opacity: 1;
+}
+
+/* small screens */
+@media (max-width: 600px){
+  .footer-content{
+    flex-direction: column;
+    text-align: center;
+  }
+}
