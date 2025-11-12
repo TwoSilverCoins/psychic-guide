@@ -1,105 +1,177 @@
-:root{
-  --bg: #efe3cc;      /* page background */
-  --panel: #f2e7d0;   /* card panels */
-  --ink: #2b2620;     /* main text */
-  --subtle: #574f46;  /* paragraph text */
-  --brand: #3a362b;   /* header bar */
-  --accent: #7a2f2f;  /* button */
-  --accent-2:#632525; /* button hover */
+:root {
+  /* colors — LIGHT */
+  --bg: #e5e0d8; /* background */
+  --panel: #eae4d5; /* cards/surfaces */
+  --ink: #181c14; /* primary text */
+  --muted: #3e3f29; /* secondary text / UI */
+  --brand: #3e3f29; /* header/footer bar */
+  --accent: #432323; /* buttons/links */
+  --accent-2: #3a1f1f; /* button hover (slightly darker) */
+  /* (keep your spacing/type tokens as-is) */
+
+  /* layout scale */
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 40px;
+  --radius: 18px;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+
+  /* type scale */
+  --step--1: clamp(14px, 1.8vw, 16px);
+  --step-0: clamp(16px, 2vw, 18px);
+  --step-1: clamp(20px, 2.4vw, 22px);
+  --step-2: clamp(28px, 4vw, 32px);
+  --step-3: clamp(36px, 6vw, 64px);
 }
-*{ box-sizing: border-box; }
-html, body{ margin:0; }
-body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
 }
-a{ color:inherit; text-decoration:none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 /* layout helper */
-.container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
 /* header */
-.site-header{
-  position: sticky; top:0; z-index:10;
+.site-header {
   background: var(--brand);
-  color: var(--subtle);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.nav{
-  display:flex; align-items:center; justify-content:space-between;
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+}
+.logo {
+  font-weight: 600;
+  font-size: 22px;
+  color: #f7f5ef;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 18px 0;
 }
-.logo{ font-weight:600; letter-spacing:.08em; font-size:22px; color:#f7f5ef; }
-.nav-links{ display:flex; gap:28px; font-weight:600; color:#f7f5ef}
-.nav-links a{ opacity:.9; }
-.nav-links a:hover{ opacity:1; }
-
-.hero{
-  padding: 80px 0;
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 22px;
+  color: #f7f5ef;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-weight: 600;
+  color: #f7f5ef;
+}
+.nav-links a {
+  opacity: 0.9;
+}
+.nav-links a:hover {
+  opacity: 1;
 }
 
-.hero h1{
+/* hero */
+.hero {
+  padding: var(--space-6) 0;
+}
+.hero h1 {
   font-family: "Playfair Display", serif;
-  font-weight:700;
-  font-size: clamp(36px, 6vw, 64px);
-  line-height:1.15;
-  margin-bottom:16px;
+  font-weight: 700;
+  font-size: var(--step-3);
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+}
+.hero p {
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 880px;
+  margin: 0 0 var(--space-3);
 }
 
-.hero p{
-  font-size: 20px;
-  color:#574f46;
-  max-width:800px;
-  margin-bottom:28px;
+/* button */
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, transform 0.08s ease;
+}
+.cta:hover {
+  background: var(--accent-2);
+}
+.cta:active {
+  transform: translateY(1px);
 }
 
-/* the button */
-.cta{
-  display:inline-block;
-  background:#7a2f2f;
-  color:#fff;
-  font-weight:600;
-  padding:14px 24px;
-  border-radius:12px;
-  transition: background .2s ease;
+/* cards */
+.features {
+  padding: var(--space-3) 0 var(--space-6);
 }
-.cta:hover{
-  background:#632525;
-}
-
-/* features grid */
-.features{ padding: 24px 0 80px; }
-
-.grid{
+.grid {
   display: grid;
+  gap: var(--space-4);
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
 }
-
-.card{
-  background: #f2e7d0;             /* slightly lighter than page */
-  border-radius: 18px;
-  padding: 28px;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
 }
-
-.card h3{
+.card h3 {
   font-family: "Playfair Display", serif;
-  font-size: 28px;
-  margin: 0 0 6px;
+  font-size: var(--step-2);
+  margin: 0 0 var(--space-1);
 }
-
-.card p{
+.card p {
   margin: 0;
-  color: #574f46;
+  color: var(--muted);
 }
-
-/* mobile: stack cards */
-@media (max-width: 900px){
-  .grid{ grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* little finishing touches */
@@ -109,8 +181,8 @@ body {
 
 .card:hover {
   transform: translateY(-4px);
-  transition: transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .cta:active {
@@ -118,62 +190,75 @@ body {
 }
 
 /* ---------- Mobile polish ---------- */
-@media (max-width: 700px){
-  .nav{
+@media (max-width: 700px) {
+  .nav {
     padding: 14px 0;
     gap: 12px;
   }
-  .logo{ font-size: 20px; }
+  .logo {
+    font-size: 20px;
+  }
 
-  .nav-links{
+  .nav-links {
     gap: 18px;
     font-size: 16px;
     flex-wrap: wrap;
   }
 
-  .hero{
-    padding: 56px 0;     /* a bit tighter */
-    text-align: left;    /* or 'center' if you prefer */
+  .hero {
+    padding: 56px 0; /* a bit tighter */
+    text-align: left; /* or 'center' if you prefer */
   }
-  .hero p{
-    font-size: 18px;     /* slightly smaller for phones */
+  .hero p {
+    font-size: 18px; /* slightly smaller for phones */
   }
 
-  .features{
+  .features {
     padding: 16px 0 56px;
   }
-  .card{
+  .card {
     padding: 22px;
     border-radius: 16px;
   }
 }
 
 /* ---------- CSS-only collapsible menu ---------- */
-.menu{
-  display: none;          /* hidden on desktop (we’ll show on mobile) */
+.menu {
+  display: none; /* hidden on desktop (we’ll show on mobile) */
 }
-.menu-button{
+.menu-button {
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #f7f5ef;
   list-style: none;
   user-select: none;
 }
-.menu-button::-webkit-details-marker{ display:none; } /* hide default marker */
+.menu-button::-webkit-details-marker {
+  display: none;
+} /* hide default marker */
 
-@media (max-width: 700px){
+@media (max-width: 700px) {
   /* On phones, show menu button and stack */
-  .nav{ align-items: flex-start; }
-  .logo{ order: 0; }
-  .menu{ display: block; order: 1; }
+  .nav {
+    align-items: flex-start;
+  }
+  .logo {
+    order: 0;
+  }
+  .menu {
+    display: block;
+    order: 1;
+  }
 
   /* Hide the always-visible desktop links if you kept them elsewhere */
   /* (You removed the old nav, so no action needed.) */
 
-  .menu[open] .nav-links{ margin-top: 12px; }
-  .nav-links{
+  .menu[open] .nav-links {
+    margin-top: 12px;
+  }
+  .nav-links {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -181,24 +266,38 @@ body {
 }
 
 /* Skip link: hidden until focused */
-.skip-link{
-  position:absolute; left:-9999px; top:auto;
-  background:#000; color:#fff; padding:10px 14px; border-radius:10px;
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #000;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
 }
-.skip-link:focus{
-  left:14px; top:14px; z-index:1000;
+.skip-link:focus {
+  left: 14px;
+  top: 14px;
+  z-index: 1000;
 }
 
 /* Keyboard focus rings */
-a:focus-visible, button:focus-visible, .menu-button:focus-visible, .cta:focus-visible{
-  outline: 3px solid #7a2f2f;      /* your accent */
+a:focus-visible,
+button:focus-visible,
+.menu-button:focus-visible,
+.cta:focus-visible {
+  outline: 3px solid #7a2f2f; /* your accent */
   outline-offset: 2px;
   border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: reduce){
-  html:focus-within{ scroll-behavior: auto; }
-  *, *::before, *::after{
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
     transition: none !important;
@@ -207,15 +306,15 @@ a:focus-visible, button:focus-visible, .menu-button:focus-visible, .cta:focus-vi
 }
 
 /* ---------- Footer ---------- */
-.site-footer{
-  background: #3a362b;     /* same as header */
-  color: #e8e2d6;
+.site-footer {
+  background: #3e3f29; /* same as header */
+  color: #eae4d5;
   padding: 32px 0;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 80px;
 }
 
-.footer-content{
+.footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -223,30 +322,64 @@ a:focus-visible, button:focus-visible, .menu-button:focus-visible, .cta:focus-vi
   gap: 16px;
 }
 
-.footer-content p{
+.footer-content p {
   margin: 0;
   font-size: 15px;
 }
 
-.footer-nav{
+.footer-nav {
   display: flex;
   gap: 20px;
 }
 
-.footer-nav a{
+.footer-nav a {
   color: #e8e2d6;
   opacity: 0.85;
   font-weight: 500;
 }
 
-.footer-nav a:hover{
+.footer-nav a:hover {
   opacity: 1;
 }
 
 /* small screens */
-@media (max-width: 600px){
-  .footer-content{
+@media (max-width: 600px) {
+  .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Dark Mode */
+
+/* ---- SYSTEM PREFERENCE (kept, but overridden by manual) ---- */
+@media (prefers-color-scheme: dark) {
+  /* ---- MANUAL OVERRIDES (place LAST in the file) ---- */
+  :root.theme-dark {
+    --bg: #3e3f29;
+    --panel: #181c14;
+    --ink: #e5e0d8;
+    --muted: #eae4d5;
+    --brand: #181c14;
+    --accent: #432323;
+    --accent-2: #3a1f1f;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  :root.theme-light {
+    /* re-assert LIGHT tokens so we override the dark media query when OS is dark */
+    --bg: #e5e0d8;
+    --panel: #eae4d5;
+    --ink: #181c14;
+    --muted: #3e3f29;
+    --brand: #3e3f29;
+    --accent: #432323;
+    --accent-2: #3a1f1f;
+    --shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* optional: footer tracks theme automatically */
+  .site-footer {
+    background: var(--brand);
   }
 }
