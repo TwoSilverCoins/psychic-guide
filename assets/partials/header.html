@@ -1,12 +1,23 @@
 <header class="site-header">
-        <div class="container nav">
-            <div class="logo">TSC</div>
-            <button class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
-            <nav class="nav-links" aria-label="Primary">
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/projects/">Projects</a>
-                <a href="/contact/">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <div class="container nav">
+    <div class="logo">TSC</div>
+
+    <button class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+      🌙
+    </button>
+
+    <!-- CSS-only collapsible menu -->
+    <details class="menu" open>
+      <summary class="menu-button">
+        ☰ <span class="visually-hidden">Menu</span>
+      </summary>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </details>
+  </div>
+</header>

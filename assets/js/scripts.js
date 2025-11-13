@@ -5,8 +5,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     const url = slot.getAttribute('data-include');
     const res = await fetch(url);
     const html = await res.text();
-    slot.outerHTML = html; // replace the placeholder with fetched HTML
+    slot.outerHTML = html;
   }));
+
+  // ⬇️ ADD THIS BLOCK AFTER PARTIALS ARE LOADED ⬇️
+  const menu = document.querySelector('.menu');
+  if (menu) {
+    const mq = window.matchMedia('(max-width: 700px)');
+
+    const syncMenuOpen = () => {
+      if (mq.matches) {
+        // mobile: start CLOSED
+        menu.removeAttribute('open');
+      } else {
+        // desktop/tablet: keep it OPEN
+        menu.setAttribute('open', '');
+      }
+    };
+
+    syncMenuOpen();                 // set initial state
+    mq.addEventListener('change', syncMenuOpen); // update on resize/orientation
+  }
+  // ⬆️ END NEW BLOCK ⬆️
 });
 
 // ---- Theme toggle with persistence ----

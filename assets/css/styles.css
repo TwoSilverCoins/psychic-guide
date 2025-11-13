@@ -54,57 +54,42 @@ a {
 }
 
 /* header */
-.site-header {
+.site-header{
   background: var(--brand);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-.visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--space-4);
   padding: var(--space-4) 0;
 }
-.logo {
-  font-weight: 600;
-  font-size: 22px;
-  color: #f7f5ef;
+
+.logo{
+  font-weight:600;
+  letter-spacing:0.08em;
+  font-size:22px;
+  color:#f7f5ef;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
+.nav-links{
+  display:flex;
+  gap:28px;
+  font-weight:600;
+  color:#f7f5ef;
 }
-.logo {
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  font-size: 22px;
-  color: #f7f5ef;
-}
-.nav-links {
-  display: flex;
-  gap: 28px;
-  font-weight: 600;
-  color: #f7f5ef;
-}
-.nav-links a {
-  opacity: 0.9;
-}
-.nav-links a:hover {
-  opacity: 1;
+.nav-links a{ opacity:.9; }
+.nav-links a:hover{ opacity:1; }
+
+.theme-toggle{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.15);
+  color:#f7f5ef;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 /* hero */
@@ -189,79 +174,80 @@ body {
   transform: translateY(1px);
 }
 
-/* ---------- Mobile polish ---------- */
-@media (max-width: 700px) {
-  .nav {
-    padding: 14px 0;
-    gap: 12px;
-  }
-  .logo {
-    font-size: 20px;
-  }
-
-  .nav-links {
-    gap: 18px;
-    font-size: 16px;
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    padding: 56px 0; /* a bit tighter */
-    text-align: left; /* or 'center' if you prefer */
-  }
-  .hero p {
-    font-size: 18px; /* slightly smaller for phones */
-  }
-
-  .features {
-    padding: 16px 0 56px;
-  }
-  .card {
-    padding: 22px;
-    border-radius: 16px;
-  }
+/* desktop / tablet: show nav, hide menu button */
+.menu{
+  display:flex;
+  align-items:center;
+}
+.menu-button{
+  display:none;           /* hidden on larger screens */
+}
+.menu[open] .nav-links{
+  display:flex;
 }
 
-/* ---------- CSS-only collapsible menu ---------- */
-.menu {
-  display: none; /* hidden on desktop (we’ll show on mobile) */
-}
-.menu-button {
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #f7f5ef;
-  list-style: none;
-  user-select: none;
-}
-.menu-button::-webkit-details-marker {
-  display: none;
-} /* hide default marker */
-
-@media (max-width: 700px) {
-  /* On phones, show menu button and stack */
-  .nav {
-    align-items: flex-start;
-  }
-  .logo {
-    order: 0;
-  }
-  .menu {
-    display: block;
-    order: 1;
+/* ---------- Mobile & small tablet nav ---------- */
+@media (max-width: 700px){
+  .nav{
+    align-items:center;
+    gap: var(--space-2);
   }
 
-  /* Hide the always-visible desktop links if you kept them elsewhere */
-  /* (You removed the old nav, so no action needed.) */
-
-  .menu[open] .nav-links {
-    margin-top: 12px;
+  /* logo on the left, controls on the right */
+  .logo{
+    font-size:20px;
   }
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+
+  /* stack toggle + menu button + nav inside details */
+  .menu{
+    margin-left:auto;
+    display:block;
+  }
+
+  .menu-button{
+    display:flex;                /* now visible */
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    padding:6px 10px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    color:#f7f5ef;
+    list-style:none;
+    user-select:none;
+  }
+  .menu-button::-webkit-details-marker{
+    display:none;               /* hide default triangle */
+  }
+
+  /* collapsed by default: hide nav links */
+  .nav-links{
+    display:none;
+    flex-direction:column;
+    gap:12px;
+    margin-top:10px;
+    background: var(--brand);
+  }
+
+  /* when details is open, show links */
+  .menu[open] .nav-links{
+    display:flex;
+  }
+
+  /* hero + cards tweaks you already had, keep as-is or adjust: */
+  .hero{
+    padding:56px 0;
+    text-align:left;
+  }
+  .hero p{
+    font-size:18px;
+  }
+  .features{
+    padding:16px 0 56px;
+  }
+  .card{
+    padding:22px;
+    border-radius:16px;
   }
 }
 
