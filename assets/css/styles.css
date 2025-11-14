@@ -193,46 +193,33 @@ body {
     gap: var(--space-2);
   }
 
-  /* logo on the left, controls on the right */
-  .logo{
-    font-size:20px;
-  }
-
-  /* stack toggle + menu button + nav inside details */
   .menu{
-    margin-left:auto;
+    margin-left:auto;          /* pushes controls to the right */
     display:block;
   }
 
   .menu-button{
-    display:flex;                /* now visible */
+    display:flex;
     align-items:center;
     gap:8px;
-    cursor:pointer;
-    padding:6px 10px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,.15);
-    color:#f7f5ef;
-    list-style:none;
-    user-select:none;
-  }
-  .menu-button::-webkit-details-marker{
-    display:none;               /* hide default triangle */
+    padding: 6px 12px;
+    border-radius: 999px;      /* pill look */
   }
 
-  /* collapsed by default: hide nav links */
   .nav-links{
     display:none;
     flex-direction:column;
     gap:12px;
     margin-top:10px;
+    padding-top:10px;
+    border-top: 1px solid rgba(255,255,255,.12);
     background: var(--brand);
   }
 
-  /* when details is open, show links */
   .menu[open] .nav-links{
     display:flex;
   }
+}
 
   /* hero + cards tweaks you already had, keep as-is or adjust: */
   .hero{
@@ -249,7 +236,48 @@ body {
     padding:22px;
     border-radius:16px;
   }
+
+/* super small phones (e.g., 320–480px) */
+@media (max-width: 480px){
+  .container{
+    padding: 0 16px;           /* slightly narrower side padding */
+  }
+
+  .nav{
+    padding: 10px 0;           /* shorter header */
+    gap: var(--space-2);
+  }
+
+  .theme-toggle{
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  .menu-button{
+    padding: 6px 8px;
+  }
+
+  .hero{
+    padding: 40px 0;           /* was 56px – a bit tighter */
+  }
+
+  .hero h1{
+    font-size: clamp(26px, 8vw, 34px);
+    line-height: 1.2;
+  }
+
+  .hero p{
+    font-size: var(--step-0);
+  }
 }
+
+/* tablet: 2 columns instead of 3 */
+@media (min-width: 700px) and (max-width: 1024px){
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 
 /* Skip link: hidden until focused */
 .skip-link {
