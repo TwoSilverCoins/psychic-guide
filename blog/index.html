@@ -1,64 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two Silver Coins</title>
-
-    <!-- Google Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-     <!-- CSS -->
-     <link rel="stylesheet" href="/assets/css/styles.css" />
-
-     <!-- Favicon -->
-      <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32">
-      <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notes — TSC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<div data-include="/assets/partials/header.html"></div>
+  <div data-include="/assets/partials/header.html"></div>
 
-    <!-- Hero Section -->
-    <main id="main" class="container">
-        <section class="blog">
-  <h1>About Me<br>Take a look around my corner of the Internet</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <a class="cta" href="#">Read More</a>
-</section>
+  <main id="main" class="container">
+    <section class="hero notes-hero">
+      <h1>Notes</h1>
+      <p>
+        A collection of thoughts, sketches, and experiments. Some polished, some rough —
+        all part of how I think about the web and the world.
+      </p>
+    </section>
 
-<!-- Card section -->
-<section class="features">
-  <div class="grid">
-    <article class="card">
-      <h3>Heading</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </article>
+    <section class="notes-section">
+      <div class="notes-grid">
+        <!-- Note card 1 -->
+        <article class="note-card">
+          <a href="/blog/">
+            <div class="note-thumb">
+              <!-- optional image; can remove <img> if not using visuals yet -->
+              <!-- <img src="/assets/images/first-note-thumb.jpg" alt=""> -->
+            </div>
+            <div class="note-body">
+              <h2 class="note-title">Color, mood, and small decisions</h2>
+              <p class="note-excerpt">
+                Exploring how tiny color shifts change the whole vibe of a page and what that means for everyday interfaces.
+              </p>
+              <p class="note-meta">Jan 2025 · Visuals, UI</p>
+            </div>
+          </a>
+        </article>
 
-    <article class="card">
-      <h3>Heading</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </article>
+        <!-- Note card 2 -->
+        <article class="note-card">
+          <a href="/blog/">
+            <div class="note-body">
+              <h2 class="note-title">Layout playground</h2>
+              <p class="note-excerpt">
+                Screenshots and doodles from playing with grids, asymmetry, and “broken” layouts that still feel balanced.
+              </p>
+              <p class="note-meta">Jan 2025 · Layout</p>
+            </div>
+          </a>
+        </article>
 
-    <article class="card">
-      <h3>Heading</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </article>
-  </div>
-</section>
+        <!-- Note card 3 -->
+        <article class="note-card">
+          <a href="/blog/">
+            <div class="note-body">
+              <h2 class="note-title">Little corners of the internet</h2>
+              <p class="note-excerpt">
+                Collecting small, cozy websites that feel like rooms instead of apps.
+              </p>
+              <p class="note-meta">Dec 2024 · Inspiration</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
 
-    </main>
+  <div data-include="/assets/partials/footer.html"></div>
 
-<script src="/assets/js/scripts.js" defer></script>
-
-<div data-include="/assets/partials/footer.html"></div>
-
+  <script src="/assets/js/scripts.js" defer></script>
 </body>
-
-<a class="skip-link" href="#main">Skip to content</a>
-
 </html>

@@ -174,6 +174,102 @@ body {
   transform: translateY(1px);
 }
 
+/* Notes index */
+.notes-hero{
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-3);
+}
+
+.notes-section{
+  padding-bottom: var(--space-6);
+}
+
+.notes-grid{
+  display:grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.note-card{
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.note-card a{
+  display:block;
+  padding: var(--space-4);
+}
+
+.note-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  border-color: rgba(0,0,0,.16);
+}
+
+.note-title{
+  font-family: "Playfair Display", serif;
+  font-size: var(--step-2);
+  margin: 0 0 var(--space-1);
+}
+
+.note-excerpt{
+  margin: 0 0 var(--space-2);
+  color: var(--muted);
+}
+
+.note-meta{
+  margin:0;
+  font-size: var(--step--1);
+  opacity:.8;
+}
+
+/* Single note page */
+.note-article{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-5) 0 var(--space-6);
+}
+
+.note-header h1{
+  font-family:"Playfair Display", serif;
+  font-size: var(--step-3);
+  margin: 0 0 var(--space-2);
+}
+
+.note-breadcrumb{
+  margin:0 0 var(--space-1);
+  font-size: var(--step--1);
+}
+
+.note-breadcrumb a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.note-content p{
+  margin: 0 0 var(--space-2);
+  color: var(--muted);
+}
+
+.note-figure{
+  margin: var(--space-3) 0;
+}
+.note-figure img{
+  width:100%;
+  display:block;
+  border-radius: var(--radius);
+}
+.note-figure figcaption{
+  margin-top: var(--space-1);
+  font-size: var(--step--1);
+  opacity:.8;
+}
+
+
 /* desktop / tablet: show nav, hide menu button */
 .menu{
   display:flex;
@@ -397,3 +493,109 @@ button:focus-visible,
     background: var(--brand);
   }
 }
+
+/* -------------------------------------------------- */
+/*                GRID LAYOUT UTILITIES               */
+/* -------------------------------------------------- */
+
+/* ----- Column Placement (3-column grid) ----- */
+.card.left-column {
+  grid-column: 1;
+}
+
+.card.center-column {
+  grid-column: 2;
+}
+
+.card.right-column {
+  grid-column: 3;
+}
+
+/* ----- Full-width spans ----- */
+.card.full-width {
+  grid-column: 1 / -1; /* spans all 3 columns */
+}
+
+/* ----- Span 2 columns ----- */
+.card.span-2-left {
+  grid-column: 1 / span 2; /* columns 1–2 */
+}
+
+.card.span-2-right {
+  grid-column: 2 / span 2; /* columns 2–3 */
+}
+
+/* -------------------------------------------------- */
+/*                 ADVANCED UTILITIES                 */
+/* -------------------------------------------------- */
+
+/* ----- Force item to start on a new row ----- */
+.card.new-row {
+  grid-column: 1 / -1; /* pushes item to next row */
+}
+
+/* ----- Vertical alignment inside grid ----- */
+.card.align-top {
+  align-self: start;
+}
+
+.card.align-center {
+  align-self: center;
+}
+
+.card.align-bottom {
+  align-self: end;
+}
+
+/* ----- Control item stacking order (within same row) ----- */
+.card.order-first {
+  order: -1;
+}
+
+.card.order-last {
+  order: 99;
+}
+
+/* ----- Visibility utilities ----- */
+.hide-mobile {
+  display: block;
+}
+@media (max-width: 700px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  display: none;
+}
+@media (max-width: 700px) {
+  .hide-desktop {
+    display: block !important;
+  }
+}
+
+/* ----- Aspect Ratio utilities (handy for media blocks) ----- */
+.ar-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.ar-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ar-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* ----- Padding utilities (for fine spacing) ----- */
+.p-0 { padding: 0 !important; }
+.p-sm { padding: var(--space-2) !important; }
+.p-md { padding: var(--space-3) !important; }
+.p-lg { padding: var(--space-5) !important; }
+
+/* ----- Margin utilities ----- */
+.mt-0 { margin-top: 0 !important; }
+.mt-sm { margin-top: var(--space-2) !important; }
+.mt-md { margin-top: var(--space-4) !important; }
+.mt-lg { margin-top: var(--space-6) !important; }
