@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Two Silver Coins</title>
 
     <!-- Google Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-     <!-- CSS -->
-     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
 
-     <!-- Favicon -->
-      <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32">
-      <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16">
-
-</head>
-<body>
-
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16" />
+  </head>
+  <body>
     <div data-include="/assets/partials/header.html"></div>
 
     <!-- Projects Section -->
     <main id="main" class="container">
-        <section class="projects">
-  <h1>Check out what I'm working on!<br>I'm always up to something</h1>
-  <p>If you have any suggestions, leave me a message on the Contact page!</p>
-  
-</section>
+      <section class="projects">
+        <h1>Check out what I'm working on!<br />I'm always up to something</h1>
+        <p>
+          If you have any suggestions, leave me a message on the Contact page!
+        </p>
+      </section>
 
-<!-- Card section -->
-<section class="features">
-  <div class="grid">
-    <article class="card">
-      <h3>This Site</h3>
-      <p>I'm new to web dev</p>
-    </article>
+      <!-- Card section -->
+      <section class="features">
+        <div class="grid">
+          <article class="card">
+            <a href="/projects/this_site/">
+              <h3>This Site</h3>
+              <p>I'm new to web dev</p>
+            </a>
+          </article>
+        </div>
 
-  </div>
-</section>
-
+        <div class="grid">
+          <article class="card">
+            <a href="/projects/project_suno/">
+              <h3>Project Suno</h3>
+              <p>This is my journey of experimenting with Suno.ai and prompting.</p>
+            </a>
+          </article>
+        </div>
+      </section>
     </main>
 
-<script src="/assets/js/scripts.js" defer></script>
+    <script src="/assets/js/scripts.js" defer></script>
 
-<div data-include="/assets/partials/footer.html"></div>
+    <div data-include="/assets/partials/footer.html"></div>
+  </body>
 
-</body>
-
-<a class="skip-link" href="#main">Skip to content</a>
-
+  <a class="skip-link" href="#main">Skip to content</a>
 </html>
